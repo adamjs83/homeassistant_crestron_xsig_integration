@@ -1,0 +1,29 @@
+{
+  "domain": "crestron",
+  "name": "Crestron",
+  "codeowners": ["@yourusername"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://www.home-assistant.io/integrations/crestron",
+  "homekit": {},
+  "iot_class": "local_push",
+  "requirements": [],
+  "version": "1.0.0",
+  "zeroconf": [],
+  "bluetooth": [],
+  "integration_type": "hub",
+  "quality_scale": "silver",
+  "loggers": ["custom_components.crestron"],
+  "issue_tracker": "https://github.com/yourusername/ha-crestron/issues",
+  "platforms": [
+    "light",
+    "cover",
+    "climate",
+    "switch",
+    "binary_sensor",
+    "event",
+    "select",
+    "button"
+  ],
+  "diagnostics": true
+}

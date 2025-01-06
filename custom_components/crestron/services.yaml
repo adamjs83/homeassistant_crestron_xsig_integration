@@ -1,0 +1,102 @@
+set_join:
+  name: Set Join
+  description: Set a join value in the Crestron system.
+  fields:
+    join_type:
+      name: Join Type
+      description: Type of join to set (d=digital, a=analog, s=serial)
+      required: true
+      selector:
+        select:
+          options:
+            - label: Digital
+              value: "d"
+            - label: Analog
+              value: "a"
+            - label: Serial
+              value: "s"
+    join:
+      name: Join Number
+      description: Join number to set
+      required: true
+      selector:
+        number:
+          min: 1
+          step: 1
+          mode: box
+    value:
+      name: Value
+      description: Value to set (boolean for digital, 0-65535 for analog, text for serial)
+      required: true
+      example: "true for digital, 65535 for analog, 'text' for serial"
+
+get_join:
+  name: Get Join
+  description: Get the current value of a join from the Crestron system.
+  fields:
+    join_type:
+      name: Join Type
+      description: Type of join to get (d=digital, a=analog, s=serial)
+      required: true
+      selector:
+        select:
+          options:
+            - label: Digital
+              value: "d"
+            - label: Analog
+              value: "a"
+            - label: Serial
+              value: "s"
+    join:
+      name: Join Number
+      description: Join number to get
+      required: true
+      selector:
+        number:
+          min: 1
+          step: 1
+          mode: box
+
+pulse_join:
+  name: Pulse Join
+  description: Pulse a digital join (set to true then false after duration)
+  fields:
+    join:
+      name: Join Number
+      description: Digital join number to pulse
+      required: true
+      selector:
+        number:
+          min: 1
+          step: 1
+          mode: box
+    duration:
+      name: Duration
+      description: Duration of pulse in seconds
+      required: false
+      default: 0.1
+      selector:
+        number:
+          min: 0.1
+          max: 5.0
+          step: 0.1
+          unit_of_measurement: seconds
+
+sync_joins:
+  name: Sync Joins
+  description: Request current join states from the Crestron system
+  fields:
+    join_types:
+      name: Join Types
+      description: Types of joins to sync (defaults to all types if not specified)
+      required: false
+      selector:
+        select:
+          multiple: true
+          options:
+            - label: Digital
+              value: "d"
+            - label: Analog
+              value: "a"
+            - label: Serial
+              value: "s"
