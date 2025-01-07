@@ -1,3 +1,5 @@
+PLEASE NOTE THE IS A BETA RELEASE
+
 # Crestron XSIG Integration for Home Assistant
 
 A full-featured Home Assistant integration for Crestron control systems that provides bidirectional communication and support for various device types through XSIG protocol.
