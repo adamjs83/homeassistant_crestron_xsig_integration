@@ -7,9 +7,9 @@ A full-featured Home Assistant integration for Crestron control systems that pro
 ## Features
 
 - **Device Support**
-  - Lights (with dimming)
+  - Keypads (with dimming)(Tested with CLW-Dimuex)
   - Motorized Shades/Covers
-  - Thermostats (including Horizon thermostats)
+  - Thermostats (including Horizon thermostats)(Still Testing)
   - Switches
   - Binary Sensors
   - Buttons (momentary and LED feedback)
