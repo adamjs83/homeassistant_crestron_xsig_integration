@@ -1,0 +1,208 @@
+{
+  "title": "Crestron",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Crestron Connection",
+        "description": "Set up your Crestron connection",
+        "data": {
+          "port": "TCP Port Number"
+        }
+      },
+      "add_entity": {
+        "title": "Add Entity",
+        "description": "Select the type of entity to add",
+        "data": {
+          "device_type": "Entity Type"
+        }
+      },
+      "configure_shade": {
+        "title": "Configure Shade",
+        "description": "Configure motorized shade settings",
+        "data": {
+          "name": "Name",
+          "position_join": "Position Join (Analog)",
+          "raise_join": "Raise Join (Digital)"
+        },
+        "data_description": {
+          "name": "Name for this shade",
+          "position_join": "Analog join (a) for position set/feedback (e.g. a2)",
+          "raise_join": "Digital join (d) for raise/is_raising - other joins auto-calculate:\n• d[x]: Raise pulse out / is_raising state in\n• d[x+1]: Lower pulse out / is_lowering state in\n• d[x+2]: Open pulse out / is_opened state in\n• d[x+3]: Close pulse out / is_closed state in\n• d[x+4]: Stop pulse out / is_stopped state in"
+        }
+      },
+      "configure_entity": {
+        "title": "Configure Entity",
+        "description": "Configure {entity_type}",
+        "data": {
+          "name": "Name",
+          "join": "Digital Join Number",
+          "sensor_type": "Type of Sensor",
+          "device_type": "Type of Device"
+        },
+        "data_description": {
+          "join": "The digital join number used for this entity",
+          "sensor_type": "Select the type of sensor this represents",
+          "name": "Name for this entity"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Crestron system",
+      "invalid_port": "Invalid port number",
+      "port_in_use": "Port is already in use",
+      "invalid_join": "Invalid join number",
+      "join_in_use": "Join number is already in use",
+      "name_exists": "Entity name already exists",
+      "invalid_config": "Invalid entity configuration",
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "Crestron integration is already configured",
+      "no_entities": "No entities configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Main Menu",
+        "description": "Choose an action",
+        "data": {
+          "action": "Select Action"
+        },
+        "menu_options": {
+          "add_entity": "Add Entity",
+          "add_device": "Add Device",
+          "remove_entity": "Remove Entity",
+          "remove_device": "Remove Device"
+        }
+      },
+      "add_entity": {
+        "title": "Add Entity",
+        "description": "Select the type of entity to add",
+        "data": {
+          "platform": "Platform Type"
+        }
+      },
+      "add_device": {
+        "title": "Add Device",
+        "description": "Select the type of device to add",
+        "data": {
+          "device_type": "Device Type"
+        }
+      },
+      "configure_shade": {
+        "title": "Configure Shade",
+        "description": "Configure motorized shade settings",
+        "data": {
+          "name": "Name",
+          "position_join": "Position Join (Analog)",
+          "raise_join": "Raise Join (Digital)"
+        },
+        "data_description": {
+          "name": "Name for this shade",
+          "position_join": "Analog join (a) for position set/feedback (e.g. a2)",
+          "raise_join": "Digital join (d) for raise/is_raising - other joins auto-calculate:\n• d[x]: Raise pulse out / is_raising state in\n• d[x+1]: Lower pulse out / is_lowering state in\n• d[x+2]: Open pulse out / is_opened state in\n• d[x+3]: Close pulse out / is_closed state in\n• d[x+4]: Stop pulse out / is_stopped state in"
+        }
+      },
+      "clw_dimmer": {
+        "title": "Configure CLW-DIMUEX-P",
+        "description": "Configure keypad settings",
+        "data": {
+          "name": "Name",
+          "include_dimmer": "Include Dimmer",
+          "button_count": "Number of Buttons",
+          "auto_join_start": "Starting Join Number"
+        }
+      },
+      "remove_entity": {
+        "title": "Remove Entities",
+        "description": "Select entities to remove",
+        "data": {
+          "entities": "Entities"
+        }
+      },
+      "remove_device": {
+        "title": "Remove Devices",
+        "description": "Select devices to remove",
+        "data": {
+          "devices": "Devices"
+        }
+      },
+      "clw_dimuex": {
+        "title": "Configure CLW-DIMUEX-P",
+        "description": "Configure Cameo Keypad with Dimmer",
+        "data": {
+          "name": "Name",
+          "light_join": "Dimmer Join",
+          "button_1_join": "Button 1 Join",
+          "button_2_join": "Button 2 Join (Optional)",
+          "button_3_join": "Button 3 Join (Optional)",
+          "button_4_join": "Button 4 Join (Optional)",
+          "auto_populate": "Auto-populate Joins"
+        },
+        "data_description": {
+          "name": "Name for this keypad",
+          "light_join": "Analog join for dimmer (optional)",
+          "button_1_join": "Digital join for Button 1 (required)",
+          "button_2_join": "Digital join for Button 2",
+          "button_3_join": "Digital join for Button 3",
+          "button_4_join": "Digital join for Button 4",
+          "auto_populate": "Automatically assign sequential joins"
+        }
+      }
+    }
+  },
+  "device": {
+    "clw_dimuex": {
+      "name": "CLW-DIMUEX-P",
+      "description": "Cameo Keypad with Dimmer",
+      "components": {
+        "dimmer": "Dimmer",
+        "button": "Button {number}",
+        "led": "LED {number}"
+      }
+    }
+  },
+  "device_automation": {
+    "trigger_type": {
+      "scene_1": "Single press",
+      "scene_2": "Double press",
+      "scene_3": "Triple press",
+      "scene_4": "Hold",
+      "scene_5": "Release"
+    }
+  },
+  "entity": {
+    "event": {
+      "button_event": {
+        "name": "{name}",
+        "state": {
+          "press": "Button pressed",
+          "release": "Button released"
+        },
+        "event": {
+          "press": "was pressed",
+          "release": "was released"
+        }
+      }
+    },
+    "binary_sensor": {
+      "sensor": {
+        "name": "{name}",
+        "state": {
+          "on": "Detected",
+          "off": "Clear"
+        }
+      }
+    },
+    "switch": {
+      "button_led": {
+        "name": "{name} LED",
+        "state": {
+          "on": "On",
+          "off": "Off"
+        }
+      }
+    }
+  }
+}
