@@ -1,3 +1,10 @@
+# ⚠️ DEPRECATED - No Longer Maintained
+
+This repository is no longer actively maintained. Please use the new fork:
+
+**→ [creston-xsig-hassio](https://github.com/adamjs83/creston-xsig-hassio)**
+
+
 PLEASE NOTE THE IS A BETA RELEASE
 
 # Crestron XSIG Integration for Home Assistant
